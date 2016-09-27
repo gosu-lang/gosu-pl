@@ -6,7 +6,7 @@
   <version>1-X-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Gosu-Platform :: Parent POM</name>
+  <name>Gosu Platform :: Parent</name>
   <description>Gosu is a pragmatic programming language for the JVM.</description>
   <url>http://gosu-lang.github.io/</url>
 

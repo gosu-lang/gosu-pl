@@ -10,7 +10,7 @@
 
   <artifactId>gosu-pl</artifactId>
 
-  <name>The Gosu Platform</name>
+  <name>Gosu Platform</name>
 
   <dependencies>
     <dependency>
