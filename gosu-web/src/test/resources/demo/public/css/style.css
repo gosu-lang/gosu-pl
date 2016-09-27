@@ -1,0 +1,73 @@
+body {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
+  padding-top: 64px;
+}
+
+li {
+  font-size: 18px;
+}
+
+.hero-unit {
+  margin-top: 32px;
+}
+
+a.navbar-brand {
+  font-family: 'Russo One', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: #504849 !important;
+}
+
+pre {
+  font-family: 'Courier New','monospace';
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.dot, .g, .s {
+  font-size: 48px;
+  position: relative;
+}
+
+.dot {
+  font-family: 'helvetica', 'helvetica neue';
+  top:-20px
+}
+
+.g {
+  color: #3E8ACC;
+  top:-20px
+}
+
+.s {
+  color: #079502;
+  top:-10px
+}
+
+#hero-text {
+  font-family: 'Russo One', sans-serif;
+  font-weight: bold;
+  font-size: 92px;
+}
+
+/* Code styles */
+pre.prettyprint {
+  padding: 4px 2px;
+}
+
+span.com {
+  color: #8c8c8c;
+}
+
+span.kwd {
+  color: blue;
+}
+
+span.str {
+  color: #008a00;
+}
+
+#results {
+  white-space: pre;
+}

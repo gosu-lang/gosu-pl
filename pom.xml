@@ -3,9 +3,9 @@
 
   <parent>
     <groupId>org.gosu-lang.gosu</groupId>
-    <artifactId>gosu-pl</artifactId>
+    <artifactId>gosu-pl-parent</artifactId>
     <version>1-X-SNAPSHOT</version>
-    <relativePath>gosu-pl</relativePath>
+    <relativePath>gosu-pl-parent</relativePath>
   </parent>
   <artifactId>gosu-pl-proj</artifactId>
   <packaging>pom</packaging>
@@ -18,9 +18,10 @@
   </scm>
   
   <modules>
-    <module>gosu-pl</module>
+    <module>gosu-pl-parent</module>
     <module>gosu-db</module>
     <module>gosu-web</module>
+    <module>gosu-pl</module>
   </modules>
 
   <build>
