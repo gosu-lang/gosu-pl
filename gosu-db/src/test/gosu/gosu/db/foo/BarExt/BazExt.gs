@@ -1,6 +1,6 @@
 package gosu.db.foo.BarExt
 
-uses SQLRecord
+uses gosu.db.runtime.SQLRecord
 
 public class BazExt extends SQLRecord {
 
