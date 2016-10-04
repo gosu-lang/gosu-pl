@@ -400,7 +400,7 @@ public class SQLTableTypeInfo extends SQLBaseTypeInfo {
 
     IType correctlyNamedDomainLogic = TypeSystem.getByFullNameIfValid(domainLogicFqn);
 
-    IType sqlRecord = TypeSystem.getByFullName( "SQLRecord" ); //ok to throw here if we can't find SQLRecord
+    IType sqlRecord = TypeSystem.getByFullName( "gosu.db.runtime.SQLRecord" ); //ok to throw here if we can't find SQLRecord
 
     if( correctlyNamedDomainLogic != null )
     {
