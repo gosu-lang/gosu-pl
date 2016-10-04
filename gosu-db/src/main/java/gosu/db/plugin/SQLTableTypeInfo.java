@@ -412,12 +412,12 @@ public class SQLTableTypeInfo extends SQLBaseTypeInfo {
         }
         else
         {
-          System.out.println( "Ragnar extension classes must be Gosu classes" );
+          System.out.println( "GosuDB extension classes must be Gosu classes" );
         }
       }
       else
       {
-        System.out.println( "Ragnar extension classes must extend SQLRecord" );
+        System.out.println( "GosuDB extension classes must extend SQLRecord" );
       }
     }
 

@@ -43,7 +43,7 @@ public class GosuDB
   public static PreparedStatement prepareStatement( String sql, List vals) throws SQLException
   {
     Connection conn = getConnection();
-//    System.out.println(sql + " @RagnarDB 27"); debugging logging info
+//    System.out.println(sql + " @GosuDB 27"); debugging logging info
     maybeLog(sql, vals);
     PreparedStatement stmt = conn.prepareStatement( sql );
     setVals(vals, stmt);
@@ -61,7 +61,7 @@ public class GosuDB
 
   private static void maybeLog( String sql, List vals )
   {
-    System.out.println("RagnarDB SQL : " + sql + " : " + vals);
+    System.out.println("GosuDB SQL : " + sql + " : " + vals);
   }
 
   private static void setVals( List vals, PreparedStatement stmt ) throws SQLException

@@ -19,8 +19,9 @@
   
   <modules>
     <module>gosu-pl-parent</module>
-    <module>gosu-db</module>
     <module>gosu-web</module>
+    <module>gosu-db</module>
+    <module>gosu-db-test</module>
     <module>gosu-pl</module>
   </modules>
 

@@ -1,6 +1,6 @@
 package gosu.db.runtime;
 
-public class RagnarExt<T> extends SQLRecord
+public class GosuDBExt<T> extends SQLRecord
 {
   protected T getSelf() {
     return (T) this;
