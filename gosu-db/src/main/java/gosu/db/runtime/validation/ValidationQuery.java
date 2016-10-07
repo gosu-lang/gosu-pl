@@ -1,5 +1,7 @@
 package gosu.db.runtime.validation;
 
+import gosu.db.GosuDB;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +21,7 @@ public class ValidationQuery {
 
   public boolean unique(){
     try {
-      PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement(sql, bindVals);
+      PreparedStatement preparedStatement = GosuDB.prepareStatement(sql, bindVals);
       ResultSet resultSet = preparedStatement.executeQuery();
       return !resultSet.next();
     } catch (SQLException e) {

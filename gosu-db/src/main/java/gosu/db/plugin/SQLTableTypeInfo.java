@@ -1,6 +1,5 @@
 package gosu.db.plugin;
 
-import gosu.db.utils.NounHandler;
 import gw.lang.reflect.ConstructorInfoBuilder;
 import gw.lang.reflect.IAttributedFeatureInfo;
 import gw.lang.reflect.IConstructorHandler;
@@ -17,10 +16,13 @@ import gw.lang.reflect.ParameterInfoBuilder;
 import gw.lang.reflect.PropertyInfoBuilder;
 import gw.lang.reflect.TypeSystem;
 import gw.lang.reflect.features.IPropertyReference;
+import gw.lang.reflect.features.PropertyReference;
 import gw.lang.reflect.gs.IGosuClass;
 import gw.lang.reflect.java.JavaTypes;
 import gw.util.concurrent.LockingLazyVar;
+import javafx.util.Pair;
 import gosu.db.api.IModelConfig;
+import gosu.db.api.ISQLResult;
 import gosu.db.parser.ast.Constraint;
 import gosu.db.parser.ast.CreateTable;
 import gosu.db.runtime.ModelConfig;
@@ -28,6 +30,7 @@ import gosu.db.runtime.SQLConstraint;
 import gosu.db.runtime.SQLMetadata;
 import gosu.db.runtime.SQLQuery;
 import gosu.db.runtime.SQLRecord;
+import gosu.db.utils.NounHandler;
 
 import java.net.MalformedURLException;
 import java.util.*;
@@ -392,7 +395,7 @@ public class SQLTableTypeInfo extends SQLBaseTypeInfo {
   private IGosuClass maybeGetDomainLogic() {
     ISQLTableType tableType = getOwnersType();
     ISQLDdlType ddlType = (ISQLDdlType) tableType.getEnclosingType();
-    final String singularizedDdlType = new NounHandler( ddlType.getRelativeName()).getSingular();
+    final String singularizedDdlType = new NounHandler(ddlType.getRelativeName()).getSingular();
     final String domainLogicPackageSuffix = "Ext.";
     final String domainLogicTableSuffix = "Ext";
     final String domainLogicFqn = ddlType.getNamespace() + '.' +

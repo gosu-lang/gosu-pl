@@ -7,8 +7,7 @@ import java.util.Set;
 /**
  * Created by klu on 8/11/2015.
  */
-public class ContentValidator<T> extends FieldValidator<T>
-{
+public class ContentValidator<T> extends FieldValidator<T>{
   private Set<Object> objs;
 
   public ContentValidator(Set<Object> ob){

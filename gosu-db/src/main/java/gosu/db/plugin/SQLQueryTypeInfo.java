@@ -1,18 +1,17 @@
 package gosu.db.plugin;
 
-import gosu.db.parser.ast.JavaVar;
-import gosu.db.parser.ast.ResultColumn;
-import gosu.db.parser.ast.SelectStatement;
-import gosu.db.parser.ast.Statement;
-import gosu.db.runtime.ExecutableQuery;
-import gosu.db.runtime.ITypeToSQLMetadata;
-import gosu.db.runtime.SQLMetadata;
-import gosu.db.runtime.SQLQueryResultMetadata;
+import gw.lang.parser.resources.Res;
 import gw.lang.reflect.*;
 import gw.lang.reflect.java.JavaTypes;
+import gosu.db.GosuDB;
+import gosu.db.parser.ast.*;
+import gosu.db.runtime.*;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.*;
 
 public class SQLQueryTypeInfo extends SQLBaseTypeInfo {
@@ -114,17 +113,17 @@ public class SQLQueryTypeInfo extends SQLBaseTypeInfo {
 //        System.out.println(finalSQL + " @SQLQueryTypeInfo 105"); debugging logging info
           if (isSelect) {
             if (returnType instanceof ISQLQueryResultType) {
-              _md = new SQLQueryResultMetadata( (ISQLQueryResultType) returnType);
+              _md = new SQLQueryResultMetadata((ISQLQueryResultType) returnType);
             } else if (returnType instanceof ISQLTableType) {
               _md = new SQLMetadata();
             } else {
               _md = new SQLQueryResultMetadata(owner.getTable(statement.getTables().get(0)));
             }
-            ExecutableQuery query = new ExecutableQuery( _md, returnType, finalSQL, returnType, table, vars);
+            ExecutableQuery query = new ExecutableQuery(_md, returnType, finalSQL, returnType, table, vars);
             query = query.setup();
             return query;
           } else {
-            PreparedStatement p = gosu.db.GosuDB.prepareStatement(finalSQL, vars);
+            PreparedStatement p = GosuDB.prepareStatement(finalSQL, vars);
             return p.executeUpdate();
           }
         } catch (Exception e) {

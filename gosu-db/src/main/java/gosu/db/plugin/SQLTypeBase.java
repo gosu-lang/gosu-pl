@@ -9,7 +9,6 @@ import gw.lang.reflect.ITypeRef;
 import gw.lang.reflect.TypeBase;
 import gw.lang.reflect.gs.ClassType;
 import gw.lang.reflect.gs.ISourceFileHandle;
-import gw.lang.reflect.gs.StringSourceFileHandle;
 import gw.lang.reflect.module.IModule;
 import gw.util.StreamUtil;
 import gw.util.concurrent.LockingLazyVar;

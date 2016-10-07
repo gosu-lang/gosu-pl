@@ -1,5 +1,8 @@
 package gosu.db.parser.ast;
 
+import gw.lang.parser.resources.Res;
+import gosu.db.parser.Token;
+
 import java.util.ArrayList;
 
 /**

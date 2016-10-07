@@ -2,6 +2,7 @@ package gosu.db.runtime;
 
 import gw.lang.reflect.IType;
 import gw.util.GosuExceptionUtil;
+import gosu.db.GosuDB;
 import gosu.db.api.IModelConfig;
 import gosu.db.api.ISQLResult;
 
@@ -103,7 +104,7 @@ public class SQLRecord implements ISQLResult
 
     try
     {
-      PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement( sql, vals, Statement.RETURN_GENERATED_KEYS );
+      PreparedStatement preparedStatement = GosuDB.prepareStatement( sql, vals, Statement.RETURN_GENERATED_KEYS );
       preparedStatement.executeUpdate();
       ResultSet tableKeys = preparedStatement.getGeneratedKeys();
       if(tableKeys.next()) {
@@ -147,7 +148,7 @@ public class SQLRecord implements ISQLResult
 
     try
     {
-      PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement( sql, vals );
+      PreparedStatement preparedStatement = GosuDB.prepareStatement( sql, vals );
       preparedStatement.executeUpdate();
     }
     catch( SQLException e )
@@ -160,7 +161,7 @@ public class SQLRecord implements ISQLResult
 
   public static SQLRecord read( String tableName, String idColumn, Object idValue ) throws SQLException
   {
-    PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement( "SELECT * FROM " + tableName + " WHERE " + idColumn + "=?", Collections.singletonList( idValue ) );
+    PreparedStatement preparedStatement = GosuDB.prepareStatement( "SELECT * FROM " + tableName + " WHERE " + idColumn + "=?", Collections.singletonList( idValue ) );
     ResultSet resultSet = preparedStatement.executeQuery();
     if( resultSet.next() )
     {
@@ -196,13 +197,13 @@ public class SQLRecord implements ISQLResult
 
   static <T> Iterator<T> select(String sql, List vals, IType impl) throws SQLException
   {
-    PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement( sql, vals );
+    PreparedStatement preparedStatement = GosuDB.prepareStatement( sql, vals );
     ResultSet resultSet = preparedStatement.executeQuery();
     return new SQLRecordResultSetIterator<T>(resultSet, impl);
   }
 
   static <T> Iterator<T> selectSingleColumn( String sql, List vals ) throws SQLException {
-    PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement(sql, vals);
+    PreparedStatement preparedStatement = GosuDB.prepareStatement(sql, vals);
     ResultSet resultSet = preparedStatement.executeQuery();
     return new SingleColumnResultSetIterator<T>(resultSet);
   }
@@ -210,7 +211,7 @@ public class SQLRecord implements ISQLResult
   static Iterable<SQLRecord> executeStatement(String sql, List vals, IType impl) throws SQLException
   {
 //    System.out.println(sql + " @SQLRecord 210"); debugging logging info
-   PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement(sql, vals);
+   PreparedStatement preparedStatement = GosuDB.prepareStatement(sql, vals);
     ResultSet resultSet = preparedStatement.executeQuery();
 //    System.out.println(sql + " @SQLRecord 213");
     List<SQLRecord> results = new LinkedList<>();
@@ -254,7 +255,7 @@ public class SQLRecord implements ISQLResult
     vals.add( getRawValue( getIdColumn() ) );
     try
     {
-      PreparedStatement preparedStatement = gosu.db.GosuDB.prepareStatement( sql, vals );
+      PreparedStatement preparedStatement = GosuDB.prepareStatement( sql, vals );
       preparedStatement.executeUpdate();
     }
     catch( SQLException e )

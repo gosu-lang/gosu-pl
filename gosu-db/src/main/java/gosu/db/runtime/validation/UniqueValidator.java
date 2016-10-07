@@ -1,15 +1,16 @@
 package gosu.db.runtime.validation;
 
-import gosu.db.runtime.FieldValidator;
 import gosu.db.plugin.SQLColumnPropertyInfo;
+import gosu.db.runtime.FieldValidator;
+import gosu.db.runtime.SQLConstraint;
+import gosu.db.runtime.SQLQuery;
 
 import java.util.Collections;
 
 /**
  * Created by klu on 8/11/2015.
  */
-public class UniqueValidator<T> extends FieldValidator<T>
-{
+public class UniqueValidator<T> extends FieldValidator<T> {
   private SQLColumnPropertyInfo propInfo;
   private String tableName;
 

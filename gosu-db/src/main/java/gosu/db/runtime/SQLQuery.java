@@ -1,12 +1,18 @@
 package gosu.db.runtime;
 
+import gw.lang.reflect.IPropertyInfo;
 import gw.lang.reflect.IType;
 import gw.lang.reflect.features.PropertyReference;
+import gw.lang.reflect.java.GosuTypes;
+import gw.lang.reflect.java.JavaTypes;
 import gw.util.GosuExceptionUtil;
+import gosu.db.GosuDB;
+import gosu.db.parser.ast.SQL;
 import gosu.db.plugin.SQLColumnPropertyInfo;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.*;
 
 /**
@@ -155,7 +161,7 @@ public class SQLQuery<T> implements Iterable<T> {
   {
     String from = "DELETE FROM " + _metadata.getTableForType(_rootType);
     String where = _whereExpr == null ? "" : "WHERE " + _whereExpr.getSQL( _metadata );
-    PreparedStatement delete = gosu.db.GosuDB.prepareStatement(from + " " + where, getArgs());
+    PreparedStatement delete = GosuDB.prepareStatement(from + " " + where, getArgs());
     return delete.execute();
   }
 

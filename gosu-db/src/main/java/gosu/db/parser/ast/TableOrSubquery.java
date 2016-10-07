@@ -1,5 +1,7 @@
 package gosu.db.parser.ast;
 
+import java.util.ArrayList;
+
 /**
  * Created by klu on 7/6/2015.
  */

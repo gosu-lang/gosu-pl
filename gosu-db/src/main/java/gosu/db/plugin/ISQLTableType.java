@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface ISQLTableType extends IType, IFileRepositoryBasedType
 {
-
   CreateTable getTable();
 
   List<ColumnDefinition> getColumnDefinitions();

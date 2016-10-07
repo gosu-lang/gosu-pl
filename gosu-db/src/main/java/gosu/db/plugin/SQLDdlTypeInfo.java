@@ -3,6 +3,7 @@ package gosu.db.plugin;
 import gw.lang.reflect.*;
 import gw.lang.reflect.java.JavaTypes;
 import gw.util.GosuExceptionUtil;
+import gosu.db.GosuDB;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -92,7 +93,7 @@ public class SQLDdlTypeInfo extends SQLBaseTypeInfo {
         Connection con = null;
         Savepoint save1 = null;
         try {
-          con = gosu.db.GosuDB.getConnection();
+          con = GosuDB.getConnection();
           con.setAutoCommit(false);
 
           save1 = con.setSavepoint();
@@ -125,4 +126,4 @@ public class SQLDdlTypeInfo extends SQLBaseTypeInfo {
       .build(this));
         }
 
-  }
+}

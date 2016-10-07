@@ -1,7 +1,4 @@
 package gosu.db.plugin;
-import gosu.db.runtime.SQLConstraint;
-import gosu.db.runtime.SQLMetadata;
-import gosu.db.runtime.SQLQuery;
 import gw.lang.reflect.*;
 import gosu.db.runtime.*;
 
@@ -59,8 +56,8 @@ public class SQLReferencePropertyInfo extends PropertyInfoBase implements IPrope
         Object ref = ((SQLRecord) obj).getRawValue(_refColumnName);
         List args = new ArrayList<>();
         args.add(ref);
-        SQLQuery query =  new SQLQuery<SQLRecord>( new SQLMetadata(), foreignTable);
-        return query.where( SQLConstraint.raw( _idColumnName + " = ? ", args));
+        SQLQuery query =  new SQLQuery<SQLRecord>(new SQLMetadata(),foreignTable);
+        return query.where(SQLConstraint.raw(_idColumnName + " = ? ", args));
 
         //Is making a new metadata ok?
         //return ((SQLRecord)obj).getRawValue( _columnName );

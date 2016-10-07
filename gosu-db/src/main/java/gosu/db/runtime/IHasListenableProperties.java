@@ -1,5 +1,9 @@
 package gosu.db.runtime;
 
+import gw.lang.reflect.IPropertyInfo;
+
+import java.util.Map;
+
 public interface IHasListenableProperties {
 
   void addListener(Object ctx, IListenerAction action);

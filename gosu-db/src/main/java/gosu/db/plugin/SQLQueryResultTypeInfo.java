@@ -1,7 +1,8 @@
 package gosu.db.plugin;
 
-import gosu.db.parser.ast.ResultColumn;
 import gw.lang.reflect.*;
+import gosu.db.parser.ast.ResultColumn;
+import gosu.db.parser.ast.SelectStatement;
 import gosu.db.parser.ast.Statement;
 import gosu.db.runtime.SQLRecord;
 

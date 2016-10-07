@@ -1,11 +1,13 @@
 package gosu.db.plugin;
 
-import gosu.db.parser.ast.EmptyType;
 import gw.fs.IFile;
 import gw.lang.reflect.IType;
+import gosu.db.parser.ast.EmptyType;
+import gosu.db.parser.ast.SelectStatement;
 import gosu.db.parser.ast.Statement;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class SQLQueryType extends SQLTypeBase implements ISQLQueryType {
   private ISQLQueryResultType resultType;
@@ -46,7 +48,7 @@ public class SQLQueryType extends SQLTypeBase implements ISQLQueryType {
 
   @Override
   protected SQLBaseTypeInfo initTypeInfo() {
-    if(getParseTree() instanceof EmptyType ){
+    if(getParseTree() instanceof EmptyType){
       return new SQLEmptyTypeInfo((ISQLQueryType) getTypeRef());
     }
     return new SQLQueryTypeInfo((ISQLQueryType) getTypeRef());

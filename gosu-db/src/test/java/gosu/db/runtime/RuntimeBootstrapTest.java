@@ -5,18 +5,21 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import gosu.db.GosuDB;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Savepoint;
+import java.util.ArrayList;
 
 public class RuntimeBootstrapTest
 {
   @BeforeClass
   static public void beforeClass() throws SQLException
   {
-    gosu.db.GosuDB.setDBUrl( "jdbc:h2:mem:runtimebootstraptest;DB_CLOSE_DELAY=-1" );
-    gosu.db.GosuDB.execStatement( "CREATE TABLE CONTACTS (\n" +
+    GosuDB.setDBUrl( "jdbc:h2:mem:runtimebootstraptest;DB_CLOSE_DELAY=-1" );
+    GosuDB.execStatement( "CREATE TABLE CONTACTS (\n" +
                             "    id bigint auto_increment,\n" +
                             "    user_id int,\n" +
                             "    first_name nchar(50),\n" +
@@ -29,13 +32,13 @@ public class RuntimeBootstrapTest
   @Before
   public void clearContacts() throws SQLException
   {
-    gosu.db.GosuDB.execStatement( "DELETE FROM CONTACTS" );
+    GosuDB.execStatement( "DELETE FROM CONTACTS" );
   }
 
   @Test
   public void basicCreateWorks() throws SQLException
   {
-    Assert.assertEquals( 0, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 0, GosuDB.count( "CONTACTS" ) );
 
     SQLRecord thing = new SQLRecord( "CONTACTS", "id" );
     thing.setRawValue( "first_name", "Carson" );
@@ -43,13 +46,13 @@ public class RuntimeBootstrapTest
     thing.setRawValue( "age", 39 );
     thing.create();
 
-    Assert.assertEquals( 1, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 1, GosuDB.count( "CONTACTS" ) );
   }
 
   @Test
   public void basicReadWorks() throws SQLException
   {
-    Assert.assertEquals( 0, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 0, GosuDB.count( "CONTACTS" ) );
 
     SQLRecord thing = new SQLRecord( "CONTACTS", "id" );
     thing.setRawValue( "first_name", "Carson" );
@@ -57,7 +60,7 @@ public class RuntimeBootstrapTest
     thing.setRawValue( "age", 39 );
     thing.create();
 
-    Assert.assertEquals( 1, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 1, GosuDB.count( "CONTACTS" ) );
 
     SQLRecord record = SQLRecord.read( "CONTACTS", "id", thing.getRawValue( "id" ) );
 
@@ -70,7 +73,7 @@ public class RuntimeBootstrapTest
   @Test
   public void basicUpdateWorks() throws SQLException
   {
-    Assert.assertEquals( 0, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 0, GosuDB.count( "CONTACTS" ) );
 
     SQLRecord thing = new SQLRecord( "CONTACTS", "id" );
     thing.setRawValue( "first_name", "Carson" );
@@ -78,7 +81,7 @@ public class RuntimeBootstrapTest
     thing.setRawValue( "age", 39 );
     thing.create();
 
-    Assert.assertEquals( 1, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 1, GosuDB.count( "CONTACTS" ) );
 
     SQLRecord record = SQLRecord.read( "CONTACTS", "id", thing.getRawValue( "id" ) );
 
@@ -93,7 +96,7 @@ public class RuntimeBootstrapTest
 
     record.update();
 
-    Assert.assertEquals( 1, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 1, GosuDB.count( "CONTACTS" ) );
     record = SQLRecord.read( "CONTACTS", "id", thing.getRawValue( "id" ) );
 
     Assert.assertNotNull( record );
@@ -105,7 +108,7 @@ public class RuntimeBootstrapTest
   @Test
   public void basicDeleteWorks() throws SQLException
   {
-    Assert.assertEquals( 0, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 0, GosuDB.count( "CONTACTS" ) );
 
     SQLRecord thing = new SQLRecord( "CONTACTS", "id" );
     thing.setRawValue( "first_name", "Carson" );
@@ -113,11 +116,11 @@ public class RuntimeBootstrapTest
     thing.setRawValue( "age", 39 );
     thing.create();
 
-    Assert.assertEquals( 1, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 1, GosuDB.count( "CONTACTS" ) );
 
     thing.delete();
 
-    Assert.assertEquals( 0, gosu.db.GosuDB.count( "CONTACTS" ) );
+    Assert.assertEquals( 0, GosuDB.count( "CONTACTS" ) );
   }
 
   @Test
@@ -125,14 +128,14 @@ public class RuntimeBootstrapTest
   {
 
     clearContacts();
-    gosu.db.GosuDB.establishConnection();
-    Connection con = gosu.db.GosuDB.getConnection();
+    GosuDB.establishConnection();
+    Connection con = GosuDB.getConnection();
     con.setAutoCommit(false);
 
     Savepoint save1 = con.setSavepoint();
 
 
-    Assert.assertEquals(0, gosu.db.GosuDB.count("CONTACTS"));
+    Assert.assertEquals(0, GosuDB.count("CONTACTS"));
 
     SQLRecord thing = new SQLRecord( "CONTACTS", "id" );
     thing.setRawValue( "first_name", "Carson" );
@@ -146,9 +149,9 @@ public class RuntimeBootstrapTest
 
 
 
-    Assert.assertEquals(0, gosu.db.GosuDB.count("CONTACTS"));
+    Assert.assertEquals(0, GosuDB.count("CONTACTS"));
 
-    gosu.db.GosuDB.releaseConnection();
+    GosuDB.releaseConnection();
 
   }
 

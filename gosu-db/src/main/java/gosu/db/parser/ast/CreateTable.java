@@ -24,7 +24,7 @@ public class CreateTable {
     columns = new ArrayList<>();
     constraints = new ArrayList<>();
     _tableName = name;
-    _typeName = new NounHandler( Character.toUpperCase( name.charAt( 0)) + name.substring( 1)).getSingular();
+    _typeName = new NounHandler(Character.toUpperCase(name.charAt(0)) + name.substring(1)).getSingular();
   }
 
   public void setName(String name){

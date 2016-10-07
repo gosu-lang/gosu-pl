@@ -7,8 +7,8 @@ uses org.junit.Before
 uses org.junit.BeforeClass
 uses org.junit.Test
 uses gosu.db.GosuDB
-uses gosu.db.Main
-uses gosu.db.Main.*
+uses gosu.db.foo.Main
+uses gosu.db.foo.Main.*
 uses gosu.db.plugin.ISQLDdlType
 
 uses java.io.BufferedReader

@@ -1,37 +1,6 @@
 package gosu.db.parser;
 
-import gosu.db.parser.ast.AlgebraicTerm;
-import gosu.db.parser.ast.AndCondition;
-import gosu.db.parser.ast.Case;
-import gosu.db.parser.ast.CaseTerm;
-import gosu.db.parser.ast.Condition;
-import gosu.db.parser.ast.Constraint;
-import gosu.db.parser.ast.CreateTable;
-import gosu.db.parser.ast.DDL;
-import gosu.db.parser.ast.DateTimeTerm;
-import gosu.db.parser.ast.Default;
-import gosu.db.parser.ast.DeleteStatement;
-import gosu.db.parser.ast.EmptyType;
-import gosu.db.parser.ast.Expression;
-import gosu.db.parser.ast.ExpressionArray;
-import gosu.db.parser.ast.Factor;
-import gosu.db.parser.ast.GeneralTerm;
-import gosu.db.parser.ast.InsertStatement;
-import gosu.db.parser.ast.JavaVar;
-import gosu.db.parser.ast.Operand;
-import gosu.db.parser.ast.OrderingTerm;
-import gosu.db.parser.ast.QuestionTerm;
-import gosu.db.parser.ast.ResultColumn;
-import gosu.db.parser.ast.SQL;
-import gosu.db.parser.ast.SelectStatement;
-import gosu.db.parser.ast.SimpleSelect;
-import gosu.db.parser.ast.StringTerm;
-import gosu.db.parser.ast.Summand;
-import gosu.db.parser.ast.TableOrSubquery;
-import gosu.db.parser.ast.Term;
-import gosu.db.parser.ast.UpdateStatement;
-import gosu.db.parser.ast.ValuesClause;
-import gosu.db.parser.ast.VariableTerm;
+import gosu.db.parser.ast.*;
 import gosu.db.plugin.ColumnDefinition;
 
 import java.sql.Types;
@@ -42,7 +11,7 @@ import java.util.List;
 public class SQLParser {
 
   /**
-   * This is the parser for gosu.db. This is an LR(1) parser using the grammar referred to in SQL.g. All valid
+   * This is the parser for GosuDB. This is an LR(1) parser using the grammar referred to in SQL.g. All valid
    * sentences in this parser are valid for use in the database; however, not necessarily all possible statements
    * according to the H2 grammar are valid in this parser. For conflicts, please see SQL.g for explanation.
    */
@@ -1283,7 +1252,7 @@ public class SQLParser {
       condition.addToken(currentToken);
       match(TokenType.LPAREN);
       SelectStatement ss = parseSelect();
-      condition.setFirst(new Operand( new Summand( new Factor( new GeneralTerm( ss)))));
+      condition.setFirst(new Operand(new Summand(new Factor(new GeneralTerm(ss)))));
       condition.addToken(currentToken);
       match(TokenType.RPAREN);
     } else {
@@ -1353,7 +1322,7 @@ public class SQLParser {
             existing.setSecond(new Operand(new Summand(new Factor(new GeneralTerm(ss)))));
           } else {
             Expression e = parseExpr();
-            existing.setSecond(new Operand(new Summand(new Factor(new GeneralTerm(new ExpressionArray( e))))));
+            existing.setSecond(new Operand(new Summand(new Factor(new GeneralTerm(new ExpressionArray(e))))));
             while (tokEquals(TokenType.COMMA)) {
               next();
               parseExpr();
@@ -1436,7 +1405,7 @@ public class SQLParser {
         String x = match(TokenType.IDENT);
         if(x.equals("date") || x.equals("time") || x.equals("timestamp")){
           String y = match(TokenType.IDENT);
-          t = new DateTimeTerm( x, y);
+          t = new DateTimeTerm(x, y);
           break;
         }
         if(tokEquals(TokenType.DOT)){
@@ -1444,7 +1413,7 @@ public class SQLParser {
           x += ".";
           x += match(TokenType.IDENT);
         }
-        t = new StringTerm( x);
+        t = new StringTerm(x);
         break;
       case AT:
         int l1 = currentToken.getLine();
@@ -1478,12 +1447,12 @@ public class SQLParser {
         variable.setCol(c1);
         variable.setSkiplen(skiplen);
         _vars.add(variable);
-        t = new VariableTerm( variable);
+        t = new VariableTerm(variable);
         t.setLocation(l1, c1);
         break;
       case LONG:
       case INTERNALDOUBLE:
-        t = currentToken.getLongNumber()!=0?new AlgebraicTerm( currentToken.getLongNumber())
+        t = currentToken.getLongNumber()!=0?new AlgebraicTerm(currentToken.getLongNumber())
           :new AlgebraicTerm(currentToken.getDoubleNumber());
         next();
         break;
@@ -1493,7 +1462,7 @@ public class SQLParser {
         if(tokEquals(TokenType.MINUS)){
           l = -1*currentToken.getLongNumber();
           next();
-          t = new QuestionTerm( l);
+          t = new QuestionTerm(l);
         } else if(tokEquals(TokenType.PLUS)){
           next();
           t = new QuestionTerm(currentToken.getLongNumber());
@@ -1538,7 +1507,7 @@ public class SQLParser {
         } else {
           c = parseCase();
         }
-        t = new CaseTerm( c);
+        t = new CaseTerm(c);
         break;
       case NULL:
       case CURRENT_DATE:

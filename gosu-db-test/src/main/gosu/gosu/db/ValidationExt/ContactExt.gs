@@ -1,12 +1,12 @@
-package gosu.db.ValidationExt
+package gosu.db.foo.ValidationExt
 
-uses gosu.db.Validation
-uses gosu.db.Validation.*
+uses gosu.db.foo.Validation
+uses gosu.db.foo.Validation.*
 
 uses gosu.db.api.IModelConfig
 uses gosu.db.runtime.GosuDBExt
 
-class ContactExt  extends GosuDBExt<Validation.Contact> {
+class ContactExt extends GosuDBExt<Validation.Contact> {
 
   override function configure(cfg : IModelConfig) {
 

@@ -1,21 +1,24 @@
 package gosu.db.plugin;
 
 import gw.fs.IFile;
-import gw.lang.parser.IFileRepositoryBasedType;
 import gw.lang.reflect.*;
 import gw.lang.reflect.gs.ClassType;
 import gw.lang.reflect.gs.ISourceFileHandle;
 import gw.util.GosuClassUtil;
 import gw.util.GosuExceptionUtil;
 import gw.util.concurrent.LockingLazyVar;
+import gosu.db.GosuDB;
 import gosu.db.parser.ast.CreateTable;
+import gosu.db.runtime.IListenerAction;
 import gosu.db.runtime.SQLRecord;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class SQLTableType extends TypeBase implements ISQLTableType, IFileRepositoryBasedType
-{
+public class SQLTableType extends TypeBase implements ISQLTableType {
+
   private final String _name;
   private final ISQLDdlType _enclosingType;
   private final CreateTable _table;
@@ -96,7 +99,7 @@ public class SQLTableType extends TypeBase implements ISQLTableType, IFileReposi
     {
       try
       {
-        gosu.db.GosuDB.execStatement( "DELETE FROM " + _table.getTableName() );
+        GosuDB.execStatement( "DELETE FROM " + _table.getTableName() );
       }
       catch( SQLException e )
       {
@@ -110,11 +113,20 @@ public class SQLTableType extends TypeBase implements ISQLTableType, IFileReposi
     return _enclosingType.getSourceFiles();
   }
 
-  @Override
-  public boolean isDynamic()
-  {
-    return false;
-  }
+//  private Map<IPropertyInfo, IListenerAction> _propertyListeners = new HashMap<>();
+//
+//  @Override
+//  public void addListener( IPropertyInfo prop, IListenerAction action ) {
+//    _propertyListeners.put(prop, action);
+//  }
+//
+//  @Override
+//  public void fireListener(IPropertyInfo prop) {
+//    IListenerAction listener = _propertyListeners.get(prop); //TODO expand to support multiple properties
+//    if(listener != null) {
+//      listener.action(this); //TODO unchecked call... do we care?
+//    }
+//  }
 
   @Override
   public ClassType getClassType()

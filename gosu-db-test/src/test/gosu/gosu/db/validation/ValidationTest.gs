@@ -5,8 +5,8 @@ uses org.junit.Before
 uses org.junit.BeforeClass
 uses org.junit.Test
 uses gosu.db.GosuDB
-uses gosu.db.Validation
-uses gosu.db.Validation.*
+uses gosu.db.foo.Validation
+uses gosu.db.foo.Validation.*
 
 /**
  * Created by carson on 8/10/15.

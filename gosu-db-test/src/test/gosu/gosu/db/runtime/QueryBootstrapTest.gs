@@ -7,13 +7,13 @@ uses org.junit.Before
 uses org.junit.BeforeClass
 uses org.junit.Test
 uses gosu.db.GosuDB
-uses gosu.db.Main
-uses gosu.db.Main.*
+uses gosu.db.foo.Main //TODO move to proper test resource folder such as src/test/resources/gosu/db/runtime/test/MainModel.ddl
+uses gosu.db.foo.Main.*
 uses gosu.db.plugin.ISQLDdlType
-uses gosu.db.ContactsOlderThan
-uses gosu.db.myQuery2
-uses gosu.db.myQuery3
-uses gosu.db.myQuery5
+uses gosu.db.foo.ContactsOlderThan
+uses gosu.db.foo.myQuery2
+uses gosu.db.foo.myQuery3
+uses gosu.db.foo.myQuery5
 uses gosu.db.plugin.ISQLQueryType
 
 uses java.io.BufferedReader

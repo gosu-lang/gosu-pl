@@ -1,10 +1,10 @@
 package gosu.db.parser;
 
-import gosu.db.plugin.ColumnDefinition;
 import org.junit.Ignore;
 import org.junit.Test;
 import gosu.db.parser.ast.CreateTable;
 import gosu.db.parser.ast.DDL;
+import gosu.db.plugin.ColumnDefinition;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,7 +57,7 @@ public class SQLParserTest {
     assertEquals(Collections.singletonList("[1, 23] - ERROR: Expected to find '(' to start the column definition list"), parser.getErrors());
     CreateTable table = ddl.getList().get(0);
     assertEquals("contacts", table.getTableName());
-    ColumnDefinition columnDefinition = table.getColumnDefinitions().get( 0);
+    ColumnDefinition columnDefinition = table.getColumnDefinitions().get(0);
     assertEquals("name", columnDefinition.getColumnName());
     assertEquals(255, columnDefinition.getStartInt());
 

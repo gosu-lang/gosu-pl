@@ -1,11 +1,10 @@
 package gosu.db.plugin;
 
-import gosu.db.parser.ast.SQL;
 import gw.fs.IFile;
 import gw.lang.parser.IFileRepositoryBasedType;
-import gw.lang.reflect.IFileBasedFeature;
 import gw.lang.reflect.IType;
 import gw.lang.reflect.module.IModule;
+import gosu.db.parser.ast.SQL;
 
 import java.io.IOException;
 import java.io.Reader;

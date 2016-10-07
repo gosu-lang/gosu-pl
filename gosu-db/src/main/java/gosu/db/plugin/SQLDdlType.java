@@ -3,8 +3,6 @@ package gosu.db.plugin;
 import gw.fs.IFile;
 import gw.lang.reflect.IType;
 import gw.lang.reflect.TypeSystem;
-import gw.lang.reflect.gs.ClassType;
-import gw.lang.reflect.gs.ISourceFileHandle;
 import gw.util.concurrent.LockingLazyVar;
 import gosu.db.parser.ast.CreateTable;
 import gosu.db.parser.ast.DDL;
@@ -74,5 +72,4 @@ public class SQLDdlType extends SQLTypeBase implements ISQLDdlType {
   public List<CreateTable> getTables() {
     return ((DDL) getParseTree()).getList().stream().collect(Collectors.toList());
   }
-
 }

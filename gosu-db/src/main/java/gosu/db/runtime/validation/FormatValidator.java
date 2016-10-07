@@ -5,8 +5,7 @@ import gosu.db.runtime.FieldValidator;
 /**
  * Created by klu on 8/11/2015.
  */
-public class FormatValidator<T> extends FieldValidator<T>
-{
+public class FormatValidator<T> extends FieldValidator<T>{
   private String regexp;
   private int min = -1, max = -1;
 

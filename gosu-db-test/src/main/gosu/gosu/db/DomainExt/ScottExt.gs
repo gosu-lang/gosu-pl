@@ -1,6 +1,6 @@
-package gosu.db.DomainExt
+package gosu.db.foo.DomainExt
 
-uses gosu.db.Domain
+uses gosu.db.foo.Domain
 uses gosu.db.runtime.GosuDBExt
 uses gosu.db.runtime.SQLRecord
 

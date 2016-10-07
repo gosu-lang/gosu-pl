@@ -1,12 +1,14 @@
 package gosu.db.runtime;
 
-import gosu.db.runtime.validation.FormatValidator;
-import gosu.db.runtime.validation.UniqueValidator;
-import gosu.db.runtime.validation.ValidationException;
 import gw.lang.reflect.features.IPropertyReference;
+import gw.lang.reflect.features.PropertyReference;
+import javafx.util.Pair;
 import gosu.db.api.IModelConfig;
 import gosu.db.plugin.SQLColumnPropertyInfo;
 import gosu.db.runtime.validation.ContentValidator;
+import gosu.db.runtime.validation.FormatValidator;
+import gosu.db.runtime.validation.UniqueValidator;
+import gosu.db.runtime.validation.ValidationException;
 
 import java.util.*;
 
@@ -75,7 +77,7 @@ public class ModelConfig implements IModelConfig
     {
       validators = new ArrayList<>();
     }
-    validators.add(new FormatValidator<T>( regexp));
+    validators.add(new FormatValidator<T>(regexp));
     _validatorsByField.put(propertyInfo.getColumnName(), validators);
   }
 
@@ -93,7 +95,7 @@ public class ModelConfig implements IModelConfig
       {
         validators = new ArrayList<>();
       }
-      validators.add(obj -> {if(obj == null){throw new ValidationException( "Validation Exception: Object cannot be null");}});
+      validators.add(obj -> {if(obj == null){throw new ValidationException("Validation Exception: Object cannot be null");}});
       _validatorsByField.put(propertyInfo.getColumnName(), validators);
     }
   }
@@ -140,7 +142,7 @@ public class ModelConfig implements IModelConfig
     {
       validators = new ArrayList<>();
     }
-    validators.add(new UniqueValidator<T>( propertyInfo, _tableName));
+    validators.add(new UniqueValidator<T>(propertyInfo, _tableName));
     _validatorsByField.put(propertyInfo.getColumnName(), validators);
   }
 

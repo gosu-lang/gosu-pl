@@ -4,8 +4,8 @@ uses org.junit.Assert
 uses org.junit.Before
 uses org.junit.BeforeClass
 uses org.junit.Test
-uses gosu.db.Domain
-uses gosu.db.Domain.*
+uses gosu.db.foo.Domain
+uses gosu.db.foo.Domain.*
 uses gosu.db.GosuDB
 uses gosu.db.plugin.ISQLDdlType
 

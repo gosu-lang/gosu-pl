@@ -289,7 +289,7 @@ public class SQLPluginTest {
      at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
      at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
      at gw.internal.gosu.parser.GosuPropertyInfo$GosuPropertyAccessor.getValue(GosuPropertyInfo.java:290)
-     at SQLPluginTest.getInjectedProperty(SQLPluginTest.java:201)
+     at gosu.db.plugin.SQLPluginTest.getInjectedProperty(SQLPluginTest.java:201)
      at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
      at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
      at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -1,8 +1,8 @@
-package gosu.db.MainExt
+package gosu.db.foo.MainExt
 
 uses gw.lang.reflect.features.IPropertyReference
 uses gosu.db.runtime.GosuDBExt
-uses gosu.db.Main
+uses gosu.db.foo.Main
 
 uses java.lang.Iterable
 
