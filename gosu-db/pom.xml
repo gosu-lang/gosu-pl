@@ -9,7 +9,7 @@
 
   <artifactId>gosu-db</artifactId>
 
-  <name>Gosu Platform :: Database</name>
+  <name>Gosu Platform :: Database Integration</name>
 
   <dependencies>
     <dependency>

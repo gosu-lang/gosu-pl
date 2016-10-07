@@ -11,7 +11,7 @@
 
   <artifactId>gosu-js-test</artifactId>
 
-  <name>Gosu Platform :: JS Tests</name>
+  <name>Gosu Platform :: Javascript Interoperability Tests</name>
 
   <dependencies>
    <dependency>

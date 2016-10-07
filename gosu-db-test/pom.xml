@@ -12,7 +12,7 @@
 
   <artifactId>gosu-db-test</artifactId>
 
-  <name>Gosu Platform :: Database Tests</name>
+  <name>Gosu Platform :: Database Integration Tests</name>
 
   <dependencies>
     <dependency>
