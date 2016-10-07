@@ -4,7 +4,7 @@ package gosu.js;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static tora.JS.*;
+import static gosu.js.JS.*;
 
 public class JSTest
 {
