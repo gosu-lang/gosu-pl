@@ -1,7 +1,7 @@
-package gosu.db.foo.ValidationExt
+package gosu.db.ValidationExt
 
-uses gosu.db.foo.Validation
-uses gosu.db.foo.Validation.*
+uses gosu.db.Validation
+uses gosu.db.Validation.*
 
 uses gosu.db.api.IModelConfig
 uses gosu.db.runtime.GosuDBExt

@@ -7,8 +7,8 @@ uses org.junit.BeforeClass
 uses org.junit.Test
 
 uses gosu.db.GosuDB
-uses gosu.db.foo.SQLTesting
-uses gosu.db.foo.MultiSelectOne
+uses gosu.db.SQLTesting
+uses gosu.db.MultiSelectOne
 
 uses java.io.BufferedReader
 uses java.io.FileReader

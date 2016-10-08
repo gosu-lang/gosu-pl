@@ -4,7 +4,7 @@ uses org.junit.Assert
 uses org.junit.Before
 uses org.junit.BeforeClass
 uses org.junit.Test
-uses gosu.db.foo.Main
+uses gosu.db.Main
 uses gosu.db.GosuDB
 
 uses java.io.BufferedReader
@@ -58,14 +58,14 @@ class ForeignReferenceTest {
     var query = instance.State
     var result = query.getSQLString()
 
-    Assert.assertEquals("SELECT states.*  FROM states   WHERE Id = ?    ", result)
+    Assert.assertEquals("SELECT states.*  FROM states   WHERE Id = ?     ", result)
 
     var stateInstance = new Main.State()
     stateInstance.Id = 1
     var newQuery = stateInstance.Contact
     var newResult = newQuery.getSQLString()
 
-    Assert.assertEquals("SELECT contacts.*  FROM contacts   WHERE StateId = ?    ", newResult)
+    Assert.assertEquals("SELECT contacts.*  FROM contacts   WHERE StateId = ?     ", newResult)
 
   }
 
