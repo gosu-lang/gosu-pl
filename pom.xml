@@ -23,7 +23,10 @@
     <module>gosu-db</module>
     <module>gosu-db-test</module>
     <module>gosu-js</module>
-    <module>gosu-js-test</module>
+    <!--TODO: reenable-->
+    <!--<module>gosu-js-test</module>-->
+    <module>gosu-auth</module>
+    <module>gosu-mail</module>
     <module>gosu-pl</module>
   </modules>
 

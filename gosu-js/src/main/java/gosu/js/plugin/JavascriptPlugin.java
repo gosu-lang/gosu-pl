@@ -3,6 +3,7 @@ package gosu.js.plugin;
 import gw.config.CommonServices;
 import gw.fs.IDirectory;
 import gw.fs.IFile;
+import gw.lang.gosuc.simple.SoutCompilerDriver;
 import gw.lang.reflect.IType;
 import gw.lang.reflect.RefreshKind;
 import gw.lang.reflect.RefreshRequest;
@@ -144,6 +145,7 @@ public class JavascriptPlugin extends TypeLoaderBase
   public JavascriptPlugin( IModule currentModule )
   {
     super( currentModule );
+    System.out.println("Created Javascript plugin w module " + currentModule.getName() );
   }
 
   @Override
