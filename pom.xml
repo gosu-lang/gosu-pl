@@ -21,13 +21,14 @@
     <module>gosu-pl-parent</module>
     <module>gosu-web</module>
     <module>gosu-db</module>
-    <module>gosu-db-test</module>
+    <!--<module>gosu-db-test</module>-->
     <module>gosu-js</module>
     <!--TODO: reenable-->
     <!--<module>gosu-js-test</module>-->
     <module>gosu-auth</module>
     <module>gosu-mail</module>
     <module>gosu-pl</module>
+    <module>gosu-chat</module>
   </modules>
 
   <build>
