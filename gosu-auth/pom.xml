@@ -12,8 +12,6 @@
     </parent>
 
     <artifactId>gosu-auth</artifactId>
-    <version>1-X-SNAPSHOT</version>
-
 
     <dependencies>
       <dependency>
@@ -29,7 +27,7 @@
       <dependency>
         <groupId>org.gosu-lang.gosu</groupId>
         <artifactId>gosu-web</artifactId>
-        <version>1-X-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
 
