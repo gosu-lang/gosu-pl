@@ -7,6 +7,7 @@
     <version>1-X-SNAPSHOT</version>
     <relativePath>gosu-pl-parent</relativePath>
   </parent>
+  
   <artifactId>gosu-pl-proj</artifactId>
   <packaging>pom</packaging>
 
