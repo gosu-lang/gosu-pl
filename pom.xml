@@ -21,7 +21,7 @@
     <module>gosu-pl-parent</module>
     <module>gosu-web</module>
     <module>gosu-db</module>
-    <!--<module>gosu-db-test</module>-->
+    <module>gosu-db-test</module>
     <module>gosu-js</module>
     <!--TODO: reenable-->
     <!--<module>gosu-js-test</module>-->
