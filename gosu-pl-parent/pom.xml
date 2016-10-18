@@ -35,7 +35,7 @@
   </scm>
 
   <properties>
-    <gosu.version>1.13.9</gosu.version> <!-- TODO replace with 1.13.9+ or 1.14.2+ -->
+    <gosu.version>1-X-SNAPSHOT</gosu.version> <!-- TODO replace with 1.13.9+ or 1.14.2+ -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <dist.man.snapshotrepo.url>https://oss.sonatype.org/content/repositories/snapshots</dist.man.snapshotrepo.url>
     <scm.root>scm:git:git@github.com:gosu-lang</scm.root>

@@ -1,3 +1,7 @@
+uses gosu.chat.view.*
+
 extends gosu.web.GosuWebFile
 
-get('/', \ -> "Welcome to GosuChat")
+Layout = AppLayout
+
+get('/', \-> "Welcome to GosuChat")
