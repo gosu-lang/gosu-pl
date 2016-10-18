@@ -1,6 +1,5 @@
 package gosu.db.ValidationExt
 
-uses gosu.db.Validation
 uses gosu.db.Validation.*
 
 uses gosu.db.api.IModelConfig
