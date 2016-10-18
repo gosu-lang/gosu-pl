@@ -1,10 +1,9 @@
-
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.lang.Integer
-import java.lang.Double
+import java.lang.Integer;
+import java.lang.Double;
 
-class TypingClass () {
+class TypingEx {
    constructor(a : String) {
      this.foo = a;
 
