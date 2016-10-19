@@ -1,0 +1,5 @@
+
+description = 'Gosu Platform :: Javascript Interoperability Tests'
+dependencies {
+  compile project(':gosu-js')
+}

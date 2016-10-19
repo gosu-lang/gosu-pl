@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Gosu-Typeloaders: gosu.db.plugin.SQLPlugin
+Contains-Sources: gs, gsx, gst
+

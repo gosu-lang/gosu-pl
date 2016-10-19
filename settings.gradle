@@ -1,0 +1,19 @@
+rootProject.name = 'gosu-pl'
+
+include ':gosu-web'
+include ':gosu-db'
+include ':gosu-db-test'
+include ':gosu-js'
+include ':gosu-js-test'
+include ':gosu-auth'
+include ':gosu-mail'
+//include ':gosu-pl:gosu-chat'
+
+//project(':gosu-pl-parent:gosu-web').projectDir = "$rootDir/gosu-web" as File
+//project(':gosu-pl-parent:gosu-db').projectDir = "$rootDir/gosu-db" as File
+//project(':gosu-pl-parent:gosu-db-test').projectDir = "$rootDir/gosu-db-test" as File
+//project(':gosu-pl-parent:gosu-js').projectDir = "$rootDir/gosu-js" as File
+//project(':gosu-pl-parent:gosu-js-test').projectDir = "$rootDir/gosu-js-test" as File
+//project(':gosu-pl-parent:gosu-auth').projectDir = "$rootDir/gosu-auth" as File
+//project(':gosu-pl-parent:gosu-mail').projectDir = "$rootDir/gosu-mail" as File
+//project(':gosu-pl-parent:gosu-pl:gosu-chat').projectDir = "$rootDir/gosu-chat" as File

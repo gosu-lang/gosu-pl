@@ -1,0 +1,12 @@
+description = 'Gosu Platform :: Database Integration'
+
+dependencies {
+    testCompile group: 'com.h2database', name: 'h2', version:'1.4.187'
+}
+
+jar {
+  manifest {
+    attributes('Gosu-Typeloaders': 'gosu.db.plugin.SQLPlugin',
+      'Contains-Sources': 'gs, gsx, gst')
+  }
+}

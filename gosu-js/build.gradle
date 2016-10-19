@@ -1,0 +1,9 @@
+
+description = 'Gosu Platform :: Javascript Interoperability'
+
+jar {
+  manifest {
+    attributes('Gosu-Typeloaders': 'gosu.js.plugin.JavascriptPlugin',
+      'Contains-Sources': 'js')
+  }
+}
