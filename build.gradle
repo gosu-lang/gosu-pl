@@ -41,6 +41,7 @@ subprojects {
 
   dependencies {
     compile 'org.gosu-lang.gosu:gosu-core-api:' + gosuVersion
+    testCompile 'junit:junit:4.12'
   }
 
 }
