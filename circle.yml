@@ -11,10 +11,10 @@ general:
   branches:
     ignore:
       - /rel\/.*/
-  artifacts:
-    - "build/reports/tests" # preserve the generated HTML test reports
 
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - mkdir -p $CIRCLE_TEST_REPORTS/gradleHTML/
+    - ./copyTestReports.sh $CIRCLE_TEST_REPORTS/gradleHTML/
