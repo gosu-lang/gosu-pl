@@ -24,13 +24,15 @@ subprojects {
   }
 
   compileGosu {
+    dependsOn(tasks.processResources)
     options.warnings = false
-    classpath = tasks.getByName('compileJava').outputs.files + classpath
+    classpath = files(tasks.getByName('compileJava').outputs.files, sourceSets.main.output.resourcesDir, classpath)
   }
 
   compileTestGosu {
+    dependsOn(tasks.processTestResources)
     options.warnings = false
-    classpath = tasks.getByName('compileTestJava').outputs.files + classpath
+    classpath = files(tasks.getByName('compileTestJava').outputs.files, sourceSets.test.output.resourcesDir, classpath)
   }
 
   repositories {
