@@ -15,7 +15,6 @@ uses javax.mail.Address
 uses java.util.Set
 uses java.util.HashSet
 uses javax.mail.Folder
-uses com.sun.tools.corba.se.idl.constExpr.BooleanOr
 uses java.lang.Double
 
 /**
@@ -42,7 +41,7 @@ class EmailMessage {
   }
 
   construct(basis : Message)
-  {        
+  {
     From = basis.From[0].toString()
     Subject = basis.Subject
     Text = parseMessageForText(basis)
@@ -214,7 +213,7 @@ class EmailMessage {
       throw(new IllegalStateException("Cannot delete a message that is not on the server"))
     }
     return
-  }  
+  }
 
   /**
    * Marks a message as read, even if it has already been marked as read. Note that for
@@ -232,7 +231,7 @@ class EmailMessage {
       throw(new IllegalStateException("Cannot mark a message that has not yet been sent."))
     }
   }
-  
+
   private function setFlag(flag : Flags.Flag, state : boolean)
   {
     if(Basis.Folder.Open == true){
