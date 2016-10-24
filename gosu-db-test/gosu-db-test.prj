@@ -1,0 +1,19 @@
+{
+  "Title": "Gosu Experiment",
+  "Version": 1,
+  "Name": "gosu-db-test",
+  "ActiveTab": "src/main/gosu/gosu/db/DomainExt/ScottExt.gs",
+  "Tabs": [
+    "src/main/gosu/scratch/RunMe.gsp",
+    "src/main/gosu/gosu/db/DomainExt/ScottExt.gs"
+  ],
+  "SourcePath": [
+    "src/main/gosu",
+    "src/main/resources",
+    "src/test/gosu",
+    "src/test/resources",
+    "/Users/carson/Projects/gosu/gosu-pl/gosu-db/target/gosu-db-1-X-SNAPSHOT.jar"
+  ],
+  "RunConfigs": [  ],
+  "MruRunConfig": null
+}
