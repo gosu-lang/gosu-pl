@@ -12,6 +12,9 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>gosu-chat</artifactId>
+  <artifactId>gosu-chant</artifactId>
+
+  <name>Gosu Chant     :: A Gosu Demo Application</name>
+
 
 </project>

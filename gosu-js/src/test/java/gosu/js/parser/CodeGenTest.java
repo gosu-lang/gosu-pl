@@ -236,7 +236,7 @@ public void testStaticPropertiesInClass() {
     Assert.assertEquals(21.0,engine.eval("dem.halfDoh"));
     Assert.assertEquals(42,engine.eval("dem.poh"));
     engine.eval("dem.poh = 42");
-    Assert.assertEquals(84.0,engine.eval("dem.doublePoh"));
+    Assert.assertEquals(84,engine.eval("dem.doublePoh"));
   }
 
 
