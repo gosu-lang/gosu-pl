@@ -1,2 +1,7 @@
+plugins {
+  id 'application'
+}
 
 description = 'Gosu Chant :: A Demo Gosu Project'
+
+mainClassName = 'gosu.chant.GosuChant'
