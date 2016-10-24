@@ -6,3 +6,9 @@ dependencies {
     compile group: 'com.google.code.gson', name: 'gson', version:'2.2.4'
     compile group: 'com.codahale.metrics', name: 'metrics-core', version:'3.0.1'
 }
+
+jar {
+  manifest {
+    attributes('Contains-Sources': 'gs, gsx, gsp, gst')
+  }
+}
