@@ -1,5 +1,4 @@
 uses demo.javascript.ExtendedArrayList
-uses demo.ExampleProps
 
 //Create a new extended array list
 var extendedArrayList = new ExtendedArrayList();

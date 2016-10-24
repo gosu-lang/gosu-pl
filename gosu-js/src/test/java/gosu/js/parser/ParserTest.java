@@ -153,7 +153,7 @@ public class ParserTest {
         assertEquals(42, engine.eval("dem.foo"));
         //Test function and static function
         assertEquals(42, engine.eval("dem.bar()"));
-        assertEquals(42, engine.eval("dem.sum(22,20)"));
+        assertEquals(42.0, engine.eval("dem.sum(22,20)"));
         assertEquals(42, engine.eval("DemoClass.staticFoo()"));
         //Test properties
         assertEquals(21,engine.eval("dem.doh"));

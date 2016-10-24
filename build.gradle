@@ -4,17 +4,11 @@ plugins {
 }
 
 allprojects  {
-
-//  apply plugin: 'maven'
-
   group = 'org.gosu-lang.gosu'
   version = '1-X-SNAPSHOT'
 }
 
 subprojects {
-//  plugins {
-//    id 'org.gosu-lang.gosu' version '0.2.0'
-//  }
   apply plugin: 'org.gosu-lang.gosu'
 
   sourceCompatibility = 1.8
