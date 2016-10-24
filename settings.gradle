@@ -5,9 +5,9 @@ include ':gosu-db'
 include ':gosu-db-test'
 include ':gosu-js'
 include ':gosu-js-test'
-include ':gosu-auth'
-include ':gosu-mail'
-//include ':gosu-pl:gosu-chat'
+//include ':gosu-auth' TODO - needs owner
+//include ':gosu-mail' TODO - needs owner
+include ':gosu-pl:gosu-chant'
 
 //project(':gosu-pl-parent:gosu-web').projectDir = "$rootDir/gosu-web" as File
 //project(':gosu-pl-parent:gosu-db').projectDir = "$rootDir/gosu-db" as File

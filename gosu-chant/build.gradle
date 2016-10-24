@@ -1,0 +1,6 @@
+
+description = 'Gosu Chant    :: A Demo Gosu Project'
+
+dependencies {
+  compile group: 'org.gosu-lang.gosu', name: 'gosu-pl', version:'1-X-SNAPSHOT'
+}

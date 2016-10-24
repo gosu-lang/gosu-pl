@@ -1,4 +1,4 @@
-uses gosu.chat.view.*
+uses gosu.chant.view.*
 uses java.io.File
 
 extends gosu.web.GosuWebFile
