@@ -1,0 +1,6 @@
+
+description = 'Gosu Platform :: Database Integration Tests'
+dependencies {
+  compile project(':gosu-db')
+  compile group: 'com.h2database', name: 'h2', version:'1.4.187'
+}

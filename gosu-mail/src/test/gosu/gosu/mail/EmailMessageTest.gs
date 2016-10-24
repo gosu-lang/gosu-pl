@@ -1,6 +1,9 @@
 package gosu.mail
 
+uses org.junit.Assert
+
 uses java.lang.IllegalStateException
+
 /**
  * Created by IntelliJ IDEA.
  * User: rkitts
@@ -15,7 +18,7 @@ class EmailMessageTest extends GosuMailTestCase
     var message = new EmailMessage()
     try {
       message.delete()
-      fail("Exception not thrown")
+      Assert.fail("Exception not thrown")
     }
     catch(ise : IllegalStateException){
     }
@@ -26,7 +29,7 @@ class EmailMessageTest extends GosuMailTestCase
     var message = new EmailMessage()
     try {
       message.markRead()
-      fail("Exception not thrown")
+      Assert.fail("Exception not thrown")
     }
         catch(ise : IllegalStateException){
         }
@@ -42,13 +45,13 @@ class EmailMessageTest extends GosuMailTestCase
         catch(ise : IllegalStateException){
         }
   }
-  
+
   public function testTOOverwritesExistingTOIfOnlyOne()
   {
     var email = new EmailMessage()
     email.To = "nonsense@nothing.com"
     var expected = "crap@foo.bar"
     email.To = expected
-    assertEquals(expected, email.Recipients.single())
+    Assert.assertEquals(expected, email.Recipients.single())
   }
 }

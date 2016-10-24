@@ -1,0 +1,8 @@
+
+description = 'Gosu Platform :: Web'
+dependencies {
+    compile group: 'com.sparkjava', name: 'spark-core', version:'2.3'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.6'
+    compile group: 'com.google.code.gson', name: 'gson', version:'2.2.4'
+    compile group: 'com.codahale.metrics', name: 'metrics-core', version:'3.0.1'
+}

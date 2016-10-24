@@ -1,6 +1,5 @@
 package gosu.mail
 
-uses junit.framework.TestCase
 uses java.util.Properties
 uses java.io.InputStream
 uses java.io.FileInputStream
@@ -15,7 +14,7 @@ uses java.io.FileInputStream
  * used to test email accounts and should never(!) be checked in. This makes it a little easier to have actual
  * tests but not give away usernames and passwords
  */
-abstract class GosuMailTestCase extends TestCase{
+abstract class GosuMailTestCase {
 
   protected function clearFolder(folder : EmailFolder)
   {
@@ -23,7 +22,7 @@ abstract class GosuMailTestCase extends TestCase{
     folder.close()
     return
   }
-  
+
   protected function addUnreadMessages(account : Account, emailBasis: EmailMessage, messageCount : int)
   {
     for(cntr in 1..messageCount){

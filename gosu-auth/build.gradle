@@ -1,0 +1,7 @@
+
+description = ''
+dependencies {
+    compile group: 'org.apache.shiro', name: 'shiro-core', version:'1.1.0'
+    compile group: 'org.apache.shiro', name: 'shiro-web', version:'1.1.0'
+  compile project(':gosu-web')
+}

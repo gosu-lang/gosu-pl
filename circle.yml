@@ -1,32 +1,21 @@
 machine:
-
   timezone:
     America/Los_Angeles
-
   java:
     version:
       oraclejdk8
-
   environment:
     TERM: dumb
-    
-dependencies:
-  override:
-    # Compiles tests, but does not run them
-    - mvn install -DskipTests=true -B
+    GRADLE_OPTS: -Dorg.gradle.daemon=false
 
 general:
   branches:
     ignore:
       - /rel\/.*/
-  artifacts:
-    - "gosu-test/target/site" # preserve the generated HTML test reports
 
 test:
-  override:
-    # Only executes tests
-    - mvn surefire:test -B
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-    - find . -type f -regex ".*/target/surefire-reports/.*-output.txt" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - mkdir -p $CIRCLE_TEST_REPORTS/gradleHTML/
+    - ./copyTestReports.sh $CIRCLE_TEST_REPORTS/gradleHTML/

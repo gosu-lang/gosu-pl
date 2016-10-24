@@ -17,7 +17,6 @@ import java.io.FileReader;
 import java.net.URL;
 import java.util.List;
 
-import static com.sun.tools.javac.util.Assert.error;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -196,7 +195,7 @@ public class ParserTest {
 
     private void assertHasChildren(Node parent, Node... expectedChildren) {
         List<Node> children = parent.getChildren();
-        if (children.size() != expectedChildren.length) error("incorrect number of child nodes");
+        assertEquals("incorrect number of child nodes", expectedChildren.length, children.size());
         for (int i = 0; i < children.size(); i++) {
             assertEquals(children.get(i), expectedChildren[i]);
         }

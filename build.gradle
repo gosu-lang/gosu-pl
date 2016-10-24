@@ -1,0 +1,49 @@
+plugins {
+  id 'maven'
+  id 'org.gosu-lang.gosu' version '0.2.0' apply false
+}
+
+allprojects  {
+
+//  apply plugin: 'maven'
+
+  group = 'org.gosu-lang.gosu'
+  version = '1-X-SNAPSHOT'
+}
+
+subprojects {
+//  plugins {
+//    id 'org.gosu-lang.gosu' version '0.2.0'
+//  }
+  apply plugin: 'org.gosu-lang.gosu'
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  tasks.withType(JavaCompile) {
+  	options.encoding = 'UTF-8'
+  }
+
+  compileGosu {
+    dependsOn(tasks.processResources)
+    options.warnings = false
+    classpath = files(tasks.getByName('compileJava').outputs.files, sourceSets.main.output.resourcesDir, classpath)
+  }
+
+  compileTestGosu {
+    dependsOn(tasks.processTestResources)
+    options.warnings = false
+    classpath = files(tasks.getByName('compileTestJava').outputs.files, sourceSets.test.output.resourcesDir, classpath)
+  }
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+  }
+
+  dependencies {
+    compile 'org.gosu-lang.gosu:gosu-core-api:' + gosuVersion
+    testCompile 'junit:junit:4.12'
+  }
+
+}

@@ -1,0 +1,5 @@
+description = ''
+
+dependencies {
+  compile 'org.gosu-lang.gosu:gosu-pl:1-X-SNAPSHOT'
+}

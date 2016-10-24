@@ -1,8 +1,7 @@
 package gosu.mail
 
-uses java.lang.System
-uses java.lang.IllegalStateException
-uses java.lang.Thread
+uses org.junit.Assert
+uses org.junit.Ignore
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,14 +13,16 @@ uses java.lang.Thread
  */
 class GosuMailTest extends GosuMailTestCase{
 
-  public function testAskingForNonExistentFolderReturnsNull()
+  @Ignore
+  function askingForNonExistentFolderReturnsNull()
   {
     var account = new GMailIMAPAccount(TestAccountConfig.GMAIL_USERNAME, TestAccountConfig.GMAIL_PASSWORD);
     var nonExistent = account.getFolder("crapola")
-    assertNull(nonExistent)
+    Assert.assertNull(nonExistent)
   }
 
-  public function testUnreadMessageCountEqualsUnreadEmailMessagesSize()
+  @Ignore
+  function unreadMessageCountEqualsUnreadEmailMessagesSize()
   {
     var account = new GMailIMAPAccount(TestAccountConfig.GMAIL_USERNAME, TestAccountConfig.GMAIL_PASSWORD)
     clearFolder(account.Inbox)
@@ -42,12 +43,13 @@ class GosuMailTest extends GosuMailTestCase{
     }
     // Ordering here is important. GMail marks messages as read (SEEN) as soon as they are downloaded.
     var unreadCount = account.Inbox.UnreadMessageCount
-    assertTrue(account.Inbox.UnreadMessageCount > 0)
+    Assert.assertTrue(account.Inbox.UnreadMessageCount > 0)
     var unreadMessages = account.Inbox.UnreadEmailMessages
-    assertEquals(unreadCount, unreadMessages.size())
+    Assert.assertEquals(unreadCount, unreadMessages.size())
   }
 
-  public function testMarkingMessageReadReducesUnreadMessageCount()
+  @Ignore
+  function markingMessageReadReducesUnreadMessageCount()
   {
     var account = new GMailIMAPAccount(TestAccountConfig.GMAIL_USERNAME, TestAccountConfig.GMAIL_PASSWORD)
     clearFolder(account.Inbox)
@@ -64,11 +66,12 @@ class GosuMailTest extends GosuMailTestCase{
     var unrCount = account.Inbox.UnreadMessageCount
     var unreadMessages = account.Inbox.UnreadEmailMessages
     unreadMessages[0].markRead()
-    assertTrue(unreadMessages[0].isMarkedRead())
-    assertEquals(unrCount - 1, account.Inbox.UnreadMessageCount)
+    Assert.assertTrue(unreadMessages[0].isMarkedRead())
+    Assert.assertEquals(unrCount - 1, account.Inbox.UnreadMessageCount)
   }
 
-  public function testSendingMailSeemsToWork()
+  @Ignore
+  function sendingMailSeemsToWork()
   {
     // Send mail to ourselves, wait a little bit, see if it shows up
     var account = new GMailIMAPAccount(TestAccountConfig.GMAIL_USERNAME, TestAccountConfig.GMAIL_PASSWORD)
@@ -87,6 +90,6 @@ class GosuMailTest extends GosuMailTestCase{
       }
       Thread.sleep(5000)
     }
-    assertEquals(start + 1, account.Inbox.UnreadMessageCount)
+    Assert.assertEquals(start + 1, account.Inbox.UnreadMessageCount)
   }
 }
