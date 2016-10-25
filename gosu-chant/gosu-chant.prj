@@ -1,0 +1,41 @@
+{
+  "Title": "Gosu Experiment",
+  "Version": 1,
+  "Name": "gosu-chant",
+  "ActiveTab": "src/main/gosu/gosu/chant/GosuChant.gsp",
+  "Tabs": [
+    "src/main/gosu/gosu/chant/view/Chatbox.gst",
+    "src/main/gosu/gosu/chant/view/Chat.gst",
+    "src/main/gosu/gosu/chant/view/AppLayout.gst",
+    "src/main/gosu/gosu/chant/util/AppContextEnhancement.gsx",
+    "src/main/gosu/gosu/chant/util/GosuWebTemplateEnhancement.gsx",
+    "src/main/gosu/gosu/chant/GosuChant.gsp",
+    "src/main/gosu/gosu/chant/model/ChatMessage.gs",
+    "src/main/gosu/gosu/chant/model/ChatRoom.gs",
+    "src/main/gosu/gosu/chant/model/Account.gs",
+    "src/main/gosu/gosu/chant/view/Login.gst"
+  ],
+  "SourcePath": [
+    "src/main/gosu",
+    "src/main/resources",
+    "/Users/carson/Projects/gosu/gosu-pl/gosu-web/build/libs/gosu-web-1-X-SNAPSHOT.jar",
+    "/Users/carson/Projects/gosu/gosu-pl/gosu-db/build/libs/gosu-db-1-X-SNAPSHOT.jar",
+    "/Users/carson/Projects/gosu/gosu-pl/gosu-js/build/libs/gosu-js-1-X-SNAPSHOT.jar"
+  ],
+  "RunConfigs": [
+    {
+      "$construct_type": "editor.run.ProgramRunConfig",
+      "_params": {
+        "$construct_type": "editor.run.ProgramRunConfigParameters",
+        "_name": "GosuChant",
+        "_fqn": "gosu.chant.GosuChant",
+        "_vmArgs": null,
+        "_progArgs": null,
+        "_workingDir": null,
+        "_jre": null,
+        "_bJre": 0
+      }
+    }
+  ],
+  "MruRunConfig": "GosuChant"
+}

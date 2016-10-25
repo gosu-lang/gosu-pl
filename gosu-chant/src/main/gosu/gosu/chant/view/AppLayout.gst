@@ -1,3 +1,5 @@
+<%@ extends gosu.web.GosuWebTemplate %>
+
 <%@ params( content: String ) %>
 
 <html>
@@ -17,7 +19,7 @@
 
     <body>
 
-      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="navbar navbar-inverse">
         <div class="container">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">GosuChat</a>

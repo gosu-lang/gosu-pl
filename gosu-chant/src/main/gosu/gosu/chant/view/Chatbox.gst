@@ -1,6 +1,12 @@
-<div class="form-group">
-  <label for="msg">Shitpost</label>
-  <input type="text" class="form-control" id="msg" name="msg">
-</div>
+<%@ extends gosu.web.GosuWebTemplate %>
 
-<button type="submit" class="btn btn-default">Submit</button>
+<%@ params( room : gosu.chant.model.ChatRoom ) %>
+
+  <div class="form-group">
+    <label for="msg">
+      Shitposting as <em>${CurrentUser.Name}</em>
+    </label>
+    <input type="text" class="form-control" id="msg" name="msg">
+  </div>
+
+  <button type="submit" class="btn btn-default">Post</button>

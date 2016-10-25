@@ -171,14 +171,20 @@ public class JavascriptPlugin extends TypeLoaderBase
             return null;
           }
 
+        try
+        {
           if (parser.isES6Class()) {
             return new JavascriptClassType(this, name, iFile, programNode);
           } else {
             return new JavascriptProgramType(this, name, iFile, programNode);
           }
         }
+        catch( Exception e )
+        {
+          System.out.println("");
+        }
+      }
     } catch (IOException e) {
-
     }
     return null;
   }
