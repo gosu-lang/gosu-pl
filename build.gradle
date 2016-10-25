@@ -4,8 +4,6 @@ plugins {
 }
 
 allprojects  {
-  group = 'org.gosu-lang.gosu'
-  version = '1-X-SNAPSHOT'
 }
 
 subprojects {
