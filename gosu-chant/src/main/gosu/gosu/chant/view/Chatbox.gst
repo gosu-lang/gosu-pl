@@ -6,7 +6,7 @@
     <label for="msg">
       Shitposting as <em>${CurrentUser.Name}</em>
     </label>
-    <input type="text" class="form-control" id="msg" name="msg">
+    <input type="text" class="form-control" id="msg" name="msg" autofocus>
   </div>
 
   <button type="submit" class="btn btn-default">Post</button>

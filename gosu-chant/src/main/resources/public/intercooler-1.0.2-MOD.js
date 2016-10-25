@@ -1062,6 +1062,11 @@ var Intercooler = Intercooler || (function() {
         $('html,body').animate({scrollTop: offset}, 400);
       }
     }
+    if(getICAttribute(target, "ic-scroll-to-bottom") == "true"){
+      target.scrollTop(target.prop("scrollHeight"));
+    } else if(getICAttribute(target, "ic-scroll-to-top") == "true"){
+      target.scrollTop(0);
+    };
   }
 
   function getTransitionDuration(elt, target) {
