@@ -1,33 +1,28 @@
 package gosu.db.plugin;
 
-import gw.fs.IFile;
-import gw.lang.reflect.ITypeInfo;
-import gw.util.concurrent.LockingLazyVar;
-import gosu.db.parser.ast.SelectStatement;
 import gosu.db.parser.ast.Statement;
 import gosu.db.runtime.SQLRecord;
+import gw.fs.IFile;
 
-import javax.swing.plaf.nimbus.State;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by klu on 7/9/2015.
  */
-public class SQLQueryResultType extends SQLTypeBase implements ISQLQueryResultType{
+public class SQLQueryResultType extends SQLTypeBase implements ISQLQueryResultType {
   private Statement statement;
   private ISQLQueryType query;
   private SQLRecord record;
-  private ArrayList<SQLColumnPropertyInfo> props = null;
+  private List<SQLColumnPropertyInfo> props = null;
 
-  public SQLQueryResultType(IFile file, SQLPlugin plugin, Statement statement, ISQLQueryType type) {
+  public SQLQueryResultType( IFile file, SQLPlugin plugin, Statement statement, ISQLQueryType type ) {
     super(file, plugin);
     this.statement = statement;
     query = type;
     record = null;
   }
 
-  public SQLQueryResultType(IFile file, SQLPlugin plugin, ArrayList<SQLColumnPropertyInfo> propertyInfos, ISQLQueryType t, Statement statement){
+  public SQLQueryResultType( IFile file, SQLPlugin plugin, List<SQLColumnPropertyInfo> propertyInfos, ISQLQueryType t, Statement statement ) {
     super(file, plugin);
     props = propertyInfos;
     query = t;
@@ -42,7 +37,7 @@ public class SQLQueryResultType extends SQLTypeBase implements ISQLQueryResultTy
 
   @Override
   protected SQLBaseTypeInfo initTypeInfo() {
-    if(props == null) {
+    if (props == null) {
       return new SQLQueryResultTypeInfo((ISQLQueryResultType) getTypeRef(), statement, query);
     } else {
       return new SQLQueryResultTypeInfo(props, (ISQLQueryResultType) getTypeRef());
@@ -51,12 +46,12 @@ public class SQLQueryResultType extends SQLTypeBase implements ISQLQueryResultTy
 
   @Override
   public String getName() {
-    return query.getName()+"Result";
+    return query.getName() + "Result";
   }
 
   @Override
   public String getRelativeName() {
-    return query.getRelativeName()+"Result";
+    return query.getRelativeName() + "Result";
   }
 
   @Override
@@ -65,7 +60,7 @@ public class SQLQueryResultType extends SQLTypeBase implements ISQLQueryResultTy
   }
 
   @Override
-  public ISQLTableType getTable(){
+  public ISQLTableType getTable() {
     return query.getTable(statement.getTables().get(0));
   }
 }

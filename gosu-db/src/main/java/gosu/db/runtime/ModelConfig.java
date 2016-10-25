@@ -67,7 +67,7 @@ public class ModelConfig implements IModelConfig
    * Validation by regex
    * @param propertyReference a property reference
    * @param regexp a regex
-   * @param <T>
+   * @param <T> the type of the property
    */
   public <T> void validateFormat(IPropertyReference<Object, T> propertyReference, String regexp){
     propertyReferences.add(propertyReference);
@@ -84,7 +84,7 @@ public class ModelConfig implements IModelConfig
   /**
    * NOT NULL Validation
    * @param propertyReferenceList list of properties you want not to be null
-   * @param <T>
+   * @param <T> the type of the property
    */
   public <T> void requiredFields(List<IPropertyReference<Object, T>> propertyReferenceList){
     for(IPropertyReference<Object, T> propertyReference: propertyReferenceList){
@@ -102,20 +102,20 @@ public class ModelConfig implements IModelConfig
 
   /**
    * For convenience; see other requiredFields method
-   * @param propertyReferenceList
-   * @param <T>
+   * @param propertyReferenceList list of property references
+   * @param <T> the type of the property
    */
-  public <T> void requiredFields(IPropertyReference<Object, T> ... propertyReferenceList){
+  public <T> void requiredFields(IPropertyReference<Object, T>... propertyReferenceList){
     List<IPropertyReference<Object, T>> propList = Arrays.asList(propertyReferenceList);
     requiredFields(propList);
   }
 
   /**
    * Validation by length of string representation. To specify no maximum, enter -1.
-   * @param propertyReference
-   * @param minlength
-   * @param maxlength
-   * @param <T>
+   * @param propertyReference a property reference
+   * @param minlength minimum length
+   * @param maxlength maximum length
+   * @param <T> the type of the property
    */
   public <T> void lengthBetween(IPropertyReference<Object, T> propertyReference, int minlength, int maxlength){
     propertyReferences.add(propertyReference);
@@ -131,8 +131,8 @@ public class ModelConfig implements IModelConfig
 
   /**
    * UNIQUE Validation; will not work against unsaved data.
-   * @param propertyReference
-   * @param <T>
+   * @param propertyReference a property reference
+   * @param <T> the type of the property
    */
   public <T> void unique(IPropertyReference<Object, T> propertyReference){
     propertyReferences.add(propertyReference);
@@ -148,8 +148,8 @@ public class ModelConfig implements IModelConfig
 
   /**
    * Equivalent to calling lengthBetween with (1,-1).
-   * @param propertyReference
-   * @param <T>
+   * @param propertyReference a property reference
+   * @param <T> the type of the property
    */
   public <T> void hasContent(IPropertyReference<Object, T> propertyReference){
     propertyReferences.add(propertyReference);
@@ -164,20 +164,20 @@ public class ModelConfig implements IModelConfig
   }
 
   /**
-   * See other isInSet
-   * @param propertyReference
-   * @param objs
-   * @param <T>
+   * See overloaded isInSet
+   * @param propertyReference a property reference
+   * @param objs list of objects
+   * @param <T> the type of the property
    */
   public <T> void isInSet(IPropertyReference<Object, T> propertyReference, List<Object> objs){
-    isInSet(propertyReference, new HashSet<Object>(objs));
+    isInSet(propertyReference, new HashSet<>(objs));
   }
 
   /**
    * Tests if a property reference has a value equal to a given set.
-   * @param propertyReference
-   * @param objs
-   * @param <T>
+   * @param propertyReference a property reference
+   * @param objs set of objects
+   * @param <T> the type of the property
    */
   public <T> void isInSet(IPropertyReference<Object, T> propertyReference, Set<Object> objs){
     propertyReferences.add(propertyReference);

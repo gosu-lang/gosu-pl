@@ -2,7 +2,6 @@ package gosu.db.plugin;
 
 import gw.lang.reflect.*;
 import gosu.db.parser.ast.ResultColumn;
-import gosu.db.parser.ast.SelectStatement;
 import gosu.db.parser.ast.Statement;
 import gosu.db.runtime.SQLRecord;
 
@@ -21,7 +20,7 @@ public class SQLQueryResultTypeInfo extends SQLBaseTypeInfo{
     decorateType(type, statement, query);
   }
 
-  public SQLQueryResultTypeInfo(ArrayList<SQLColumnPropertyInfo> propInfos, ISQLQueryResultType type){
+  public SQLQueryResultTypeInfo(List<SQLColumnPropertyInfo> propInfos, ISQLQueryResultType type){
     super(type);
     decorateType(type, propInfos);
   }
@@ -46,7 +45,7 @@ public class SQLQueryResultTypeInfo extends SQLBaseTypeInfo{
     }
   }
 
-  private void decorateType(ISQLQueryResultType type, ArrayList<SQLColumnPropertyInfo> propInfos){
+  private void decorateType(ISQLQueryResultType type, List<SQLColumnPropertyInfo> propInfos){
     _propertiesList = new ArrayList<>();
     _propertiesMap = new HashMap<>();
     _methodList = new MethodList();

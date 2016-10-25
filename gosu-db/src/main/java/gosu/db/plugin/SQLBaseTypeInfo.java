@@ -25,8 +25,8 @@ public abstract class SQLBaseTypeInfo extends BaseTypeInfo {
 
   /**
    * Sourced from "JDBC Types Mapped to Java Types" at https://docs.oracle.com/javase/1.5.0/docs/guide/jdbc/getstart/mapping.html
-   * @param sqlType
-   * @return
+   * @param sqlType int representing type
+   * @return a metatype
    */
   protected IType getGosuType(int sqlType) {
     switch(sqlType) {
