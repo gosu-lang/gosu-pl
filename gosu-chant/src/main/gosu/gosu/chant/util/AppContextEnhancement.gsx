@@ -4,13 +4,9 @@ uses gosu.web.util.IHasRequestContext
 
 enhancement AppContextEnhancement : IHasRequestContext 
 {
-  property get CurrentUser() : gosu.chant.model.Account {
-    var user = this.Session[ 'current-user' ] as String
-    if(user != null ) {
-      return new(){:Name = user} 
-    } else {
-      return null
-    }
+  // TODO we have to duplicate this logic because of the static context of templates.... why?
+  static property get CurrentUser() : gosu.chant.model.Account {
+    return UserSupport.CurrentUser
   }
 
   function LogIn( params: Map<String, String> ) : boolean {
@@ -21,5 +17,4 @@ enhancement AppContextEnhancement : IHasRequestContext
        return false
      }
   }
-
 }

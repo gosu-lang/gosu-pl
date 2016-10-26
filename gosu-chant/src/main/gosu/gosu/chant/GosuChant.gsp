@@ -1,24 +1,26 @@
 uses gosu.chant.model.*
 uses gosu.chant.view.*
+uses gosu.chant.util.EmoticonSupport
 
 extends gosu.web.GosuWebFile
 
 // Set the working directory to the resources directory when running
 StaticFiles = "/public"
-
+EmoticonSupport.init()
 Layout = AppLayout
 
+// One chatroom for now
 var chatRoom = new ChatRoom()
 
 //------------------------------------------------------------
-// Login Logic (To be generalized and pulled up
+// Login Logic (To be generalized and pulled out)
 //------------------------------------------------------------
 handle('/login', \->{
   if( Request.IsGet ) {
     return Login.renderToString() 
   } else if( Request.IsPost ) {
     if( LogIn(Params) ){
-      Response.SparkJavaResponse.header('X-IC-Redirect', "/")
+      Headers['X-IC-Redirect'] = "/"
       return raw("") // TODO nothing() ?
     } else {
       return raw( Login.renderToString() )

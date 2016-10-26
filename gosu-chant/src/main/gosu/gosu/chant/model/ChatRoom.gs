@@ -1,4 +1,5 @@
 package gosu.chant.model
+uses gosu.chant.util.EmoticonSupport
 
 class ChatRoom {
 
@@ -6,7 +7,7 @@ class ChatRoom {
 
   function addMessage( account : Account, msg : String ) {
     if(msg?.HasContent) {
-      _messages.add( new(){ :Who = account.Name, :Text = msg } ) 
+      _messages.add( new(){ :Who = account.Name, :Text = EmoticonSupport.emoticize( msg ) } ) 
     }
   }
 

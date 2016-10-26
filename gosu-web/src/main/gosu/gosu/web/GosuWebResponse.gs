@@ -4,6 +4,7 @@ uses gw.lang.reflect.ReflectUtil
 uses spark.Response
 uses java.util.Stack
 uses spark.Spark
+uses gosu.web.util.HeaderMap
 
 class GosuWebResponse {
 
@@ -38,6 +39,10 @@ class GosuWebResponse {
 
   property get Body() : String {
     return _response.body()
+  }
+
+  property get Headers() : HeaderMap {
+    return HeaderMap.Instance
   }
 
   function handleLayouts(body: String): String {
