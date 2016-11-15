@@ -32,7 +32,8 @@ handle('/login', \->{
 // Chat Room
 //------------------------------------------------------------
 // TODO extract auth filter (gosu-auth)
-using( beforeFilter( \ r, p -> { if(CurrentUser == null) Response.redirect( '/login' )  } ) ) {
+
+using( beforeFilter( \ r, p -> { if(not IsUserLoggedIn) redirect( '/login' )  } ) ) {
 
   get('/', \-> Chat.renderToString(chatRoom))
 

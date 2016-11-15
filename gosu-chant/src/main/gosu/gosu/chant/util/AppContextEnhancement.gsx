@@ -9,6 +9,10 @@ enhancement AppContextEnhancement : IHasRequestContext
     return UserSupport.CurrentUser
   }
 
+  static property get IsUserLoggedIn() : boolean {
+    return CurrentUser != null
+  }
+
   function LogIn( params: Map<String, String> ) : boolean {
      if(params['access'] == 'harambe') {
        this.Session[ 'current-user' ] = params['username']

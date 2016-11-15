@@ -2,12 +2,13 @@
   "Title": "Gosu Experiment",
   "Version": 1,
   "Name": "gosu-chant",
-  "ActiveTab": "src/main/gosu/gosu/chant/util/AppContextEnhancement.gsx",
+  "ActiveTab": "src/main/gosu/gosu/chant/GosuChant.gsp",
   "Tabs": [
     "src/main/gosu/gosu/chant/util/UserSupport.gs",
     "src/main/gosu/gosu/chant/util/EmoticonSupport.gs",
     "src/main/gosu/gosu/chant/util/GosuWebTemplateEnhancement.gsx",
-    "src/main/gosu/gosu/chant/util/AppContextEnhancement.gsx"
+    "src/main/gosu/gosu/chant/util/AppContextEnhancement.gsx",
+    "src/main/gosu/gosu/chant/GosuChant.gsp"
   ],
   "SourcePath": [
     "src/main/gosu",
