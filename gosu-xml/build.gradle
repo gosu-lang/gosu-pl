@@ -1,0 +1,12 @@
+description = 'Gosu Platform :: XSD Typeloader'
+
+dependencies {
+    compile group: 'org.gosu-lang.gosu.managed', name: 'gw-xercesImpl', version: '2.11.0'
+}
+
+jar {
+  manifest {
+    attributes('Gosu-Typeloaders': 'gw.internal.xml.xsd.typeprovider.XmlSchemaResourceTypeLoader',
+               'Contains-Sources': 'xsd')
+  }
+}

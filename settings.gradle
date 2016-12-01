@@ -5,6 +5,7 @@ include ':gosu-db'
 include ':gosu-db-test'
 include ':gosu-js'
 include ':gosu-js-test'
+include ':gosu-xml'
 //include ':gosu-auth' TODO - needs owner
 //include ':gosu-mail' TODO - needs owner
 include ':gosu-chant'
