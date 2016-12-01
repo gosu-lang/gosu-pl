@@ -7,6 +7,6 @@ dependencies {
 jar {
   manifest {
     attributes('Gosu-Typeloaders': 'gw.internal.xml.xsd.typeprovider.XmlSchemaResourceTypeLoader',
-               'Contains-Sources': 'xsd')
+               'Contains-Sources': 'gs,xsd')
   }
 }

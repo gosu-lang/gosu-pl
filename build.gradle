@@ -46,3 +46,9 @@ subprojects {
       runtime 'org.gosu-lang.gosu:gosu-core:' + gosuVersion
     }
   }
+
+  project(':gosu-ij-typeloaders') {
+    dependencies {
+      runtime 'org.gosu-lang.gosu:gosu-core:' + gosuVersion
+    }
+  }
