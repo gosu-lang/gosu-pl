@@ -17,5 +17,6 @@ dependencies {
 
 intellij {
   version 'IC-143.2370.31'
+  //TODO depend on ij-gosu
   pluginName 'Gosu Typeloaders'
 }
