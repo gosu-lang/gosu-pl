@@ -8,12 +8,20 @@ machine:
     TERM: dumb
     GRADLE_OPTS: -Dorg.gradle.daemon=false
 
+dependencies:
+  override:
+    # Gets all dependencies and compiles tests, but does not run them
+    - ./gradlew testClasses
+
 general:
   branches:
     ignore:
       - /rel\/.*/
 
 test:
+  override:
+    # Only executes tests
+    - ./gradlew test
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
