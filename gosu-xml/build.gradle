@@ -1,5 +1,9 @@
 description = 'Gosu Platform :: XSD Typeloader'
 
+repositories {
+  maven { url 'http://gosu-lang.org/nexus/content/repositories/gosu' } //for gw-xercesImpl
+}
+
 dependencies {
     compile group: 'org.gosu-lang.gosu.managed', name: 'gw-xercesImpl', version: '2.11.0'
 }
