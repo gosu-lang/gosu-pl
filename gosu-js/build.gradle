@@ -1,8 +1,10 @@
+import org.gradle.internal.jvm.Jvm
 
 description = 'Gosu Platform :: Javascript Interoperability'
 
 dependencies {
-  testRuntime files("${System.properties['java.home']}/../lib/tools.jar") //CI needs this, but strangely works locally without
+  testRuntime files(Jvm.current().toolsJar) //CI needs this, but strangely works locally without it
+  //testRuntime files("${System.properties['java.home']}/../lib/tools.jar") //alternative to above
 }
 
 jar {
