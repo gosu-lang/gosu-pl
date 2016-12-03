@@ -1,6 +1,10 @@
 
 description = 'Gosu Platform :: Javascript Interoperability'
 
+dependencies {
+  testRuntime files("${System.properties['java.home']}/../lib/tools.jar") //CI needs this, but strangely works locally without
+}
+
 jar {
   manifest {
     attributes('Gosu-Typeloaders': 'gosu.js.plugin.JavascriptPlugin',
