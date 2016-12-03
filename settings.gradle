@@ -2,7 +2,7 @@ rootProject.name = 'gosu-pl'
 
 include ':gosu-web'
 include ':gosu-db'
-include ':gosu-db-test'
+//include ':gosu-db-test'
 include ':gosu-js'
 include ':gosu-js-test'
 include ':gosu-xml'
