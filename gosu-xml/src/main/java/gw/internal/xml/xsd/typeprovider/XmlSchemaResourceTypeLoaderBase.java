@@ -565,7 +565,7 @@ public abstract class XmlSchemaResourceTypeLoaderBase<T> extends TypeLoaderBase 
 
   @Override
   protected boolean shouldCacheTypeNames() {
-    return false;
+    return true;
   }
 
   @Override
