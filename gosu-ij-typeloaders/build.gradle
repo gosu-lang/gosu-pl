@@ -1,11 +1,5 @@
-buildscript {
-  repositories {
-    maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
-  }
-}
-
 plugins {
-  id "org.jetbrains.intellij" version "0.1.10"
+  id 'org.jetbrains.intellij' version '0.1.10'
 }
 
 description = 'Gosu Platform :: IJ Typeloader Plugin'
@@ -16,7 +10,16 @@ dependencies {
 }
 
 intellij {
-  version 'IC-143.2370.31'
-  //TODO depend on ij-gosu
-  pluginName 'Gosu Typeloaders'
+  version '142.5239.7' // I had to downgrade this for compatibility with the Gosu plugin, since ij-gosu's plugin.xml declares a bunk value of until-build="143.2147483647"
+//  version '15.0.6' // Ordinarily, just use the version number: '15.0.6' or '2016.3'. Alternatively, the precise API level is OK too: 'IC-143.2370.31'
+  plugins 'com.guidewire.gosu:4.1.1.3'
+  updateSinceUntilBuild false // don't inject version numbers into plugin.xml
+//  pluginName 'GosuTypes'
+
+
+  //if running on CI, don't download sources
+  if(System.getenv('CI') != null) {
+    downloadSources false
+  }
+
 }
