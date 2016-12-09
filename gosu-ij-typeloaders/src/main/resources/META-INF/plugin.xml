@@ -8,6 +8,7 @@
   <vendor email="gosu-lang@googlegroups.com" url="http://gosu-lang.org">gosu-lang.org</vendor>
   <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
   <idea-version since-build="131"/>
+  <!--<idea-version since-build="143.2147483647" until-build="143.*"/>-->
 
   <project-components>
     <component>
