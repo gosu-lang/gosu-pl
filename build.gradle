@@ -1,6 +1,6 @@
 plugins {
   id 'maven'
-  id 'org.gosu-lang.gosu' version '0.2.0' apply false
+  id 'org.gosu-lang.gosu' version '0.2.2' apply false
 }
 
 allprojects  {
