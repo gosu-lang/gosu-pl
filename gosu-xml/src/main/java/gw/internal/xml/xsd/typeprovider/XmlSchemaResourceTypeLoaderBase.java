@@ -5,6 +5,7 @@
 package gw.internal.xml.xsd.typeprovider;
 
 import gw.config.CommonServices;
+import gw.config.ExecutionMode;
 import gw.fs.IDirectory;
 import gw.fs.IFile;
 import gw.internal.xml.xsd.ResourceFileXmlSchemaSource;
@@ -565,7 +566,7 @@ public abstract class XmlSchemaResourceTypeLoaderBase<T> extends TypeLoaderBase 
 
   @Override
   protected boolean shouldCacheTypeNames() {
-    return true;
+    return ExecutionMode.isIDE();
   }
 
   @Override
