@@ -1,6 +1,26 @@
-plugins {
-  id 'org.jetbrains.intellij' version '0.1.10'
+// use this style closure for releases
+//plugins {
+//  id 'org.jetbrains.intellij' version '0.1.10' //the release version has trouble evaluating the since-build and until-build attributes in plugin.xml
+//}
+
+// use this style closure for snapshots
+buildscript {
+  repositories {
+    mavenCentral()
+    maven {
+      url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+    maven {
+      url 'http://dl.bintray.com/jetbrains/intellij-plugin-service'
+    }
+
+  }
+  dependencies {
+    classpath "org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.2.0-SNAPSHOT"
+  }
 }
+
+apply plugin: 'org.jetbrains.intellij'
 
 description = 'Gosu Platform :: IJ Typeloader Plugin'
 
@@ -10,16 +30,19 @@ dependencies {
 }
 
 intellij {
-  version '142.5239.7' // I had to downgrade this for compatibility with the Gosu plugin, since ij-gosu's plugin.xml declares a bunk value of until-build="143.2147483647"
+  version 'IC-143.2370.31' // I had to downgrade this for compatibility with the Gosu plugin, since ij-gosu's plugin.xml declares a bunk value of until-build="143.2147483647"
 //  version '15.0.6' // Ordinarily, just use the version number: '15.0.6' or '2016.3'. Alternatively, the precise API level is OK too: 'IC-143.2370.31'
-  plugins 'com.guidewire.gosu:4.1.1.3'
-  updateSinceUntilBuild false // don't inject version numbers into plugin.xml
+  plugins 'com.guidewire.gosu:4.1.1.8'
 //  pluginName 'GosuTypes'
-
 
   //if running on CI, don't download sources
   if(System.getenv('CI') != null) {
     downloadSources false
   }
+}
 
+// 0.2.0 features
+patchPluginXml {
+  sinceBuild '141.1010'
+  pluginDescription 'IntelliJ IDEA plugin for Gosu language custom types'
 }
